@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprite Frame Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .frame {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            margin: 5px;
+            background-image: url('https://raw.githubusercontent.com/adryd325/oneko.js/main/oneko.gif'); /* Replace with the path to your sprite sheet */
+            image-rendering: pixelated;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .frame-info {
+            text-align: center;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .frame-container {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sprite Frame Viewer</h1>
+    <p>Use this tool to identify the coordinates of each frame in the sprite sheet. The coordinates below each frame indicate the <code>background-position</code> values to target that frame.</p>
+    <div id="frameViewer"></div>
+
+    <script>
+        const frameWidth = 32;
+        const frameHeight = 32;
+
+        const rows = 4; // Total number of rows in your sprite sheet
+        const columns = 8; // Total number of columns in your sprite sheet
+
+        const frameViewer = document.getElementById('frameViewer');
+
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < columns; col++) {
+                const frameContainer = document.createElement('div');
+                frameContainer.className = 'frame-container';
+
+                const frame = document.createElement('div');
+                frame.className = 'frame';
+
+                // Calculate the background position for each frame
+                const posX = -(col * frameWidth);
+                const posY = -(row * frameHeight);
+
+                frame.style.backgroundPosition = `${posX}px ${posY}px`;
+
+                const frameInfo = document.createElement('div');
+                frameInfo.className = 'frame-info';
+                frameInfo.textContent = `X: ${posX}px, Y: ${posY}px`;
+
+                frameContainer.appendChild(frame);
+                frameContainer.appendChild(frameInfo);
+                frameViewer.appendChild(frameContainer);
+            }
+        }
+    </script>
+</body>
+</html>
+

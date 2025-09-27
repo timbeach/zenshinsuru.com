@@ -1,0 +1,277 @@
+:root {
+    --bg-primary: #0d0d0d;
+    --bg-secondary: #1a1a1a;
+    --accent-cyan: #00ff9f;
+    --accent-pink: #ff3cac;
+    --accent-purple: #7b68ee;
+    --text-primary: #00ff9f;
+    --text-secondary: #888;
+    --glow-cyan: rgba(0, 255, 159, 0.6);
+    --glow-pink: rgba(255, 60, 172, 0.6);
+    --scanline: rgba(255, 255, 255, 0.03);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow: hidden;
+    position: fixed;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-primary);
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-primary);
+    text-align: center;
+    background-color: rgba(13, 13, 13, 0.3);
+    backdrop-filter: blur(5px);
+    border: 2px solid var(--accent-cyan);
+    box-shadow:
+        0 0 20px var(--glow-cyan),
+        inset 0 0 20px rgba(0, 255, 159, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    max-width: 90vw;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 10;
+    text-shadow: 0 0 8px var(--glow-cyan);
+    animation: glow-pulse 3s infinite ease-in-out;
+}
+
+.overlay h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+    color: var(--accent-pink);
+    text-shadow:
+        0 0 10px var(--glow-pink),
+        0 0 20px var(--glow-pink),
+        0 0 30px var(--glow-pink);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: text-flicker 4s infinite alternate;
+}
+
+.overlay h2 {
+    font-size: 1.8em;
+    font-weight: lighter;
+    margin-bottom: 0.8em;
+    color: var(--accent-cyan);
+    text-shadow: 0 0 8px var(--glow-cyan);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.overlay p {
+    font-size: 1.1em;
+    color: var(--text-primary);
+    text-shadow: 0 0 5px var(--glow-cyan);
+    line-height: 1.7;
+    margin-bottom: 1em;
+}
+
+/* Cyberpunk animations and effects */
+@keyframes glow-pulse {
+    0% { box-shadow: 0 0 20px var(--glow-cyan), inset 0 0 20px rgba(0, 255, 159, 0.1); }
+    50% { box-shadow: 0 0 30px var(--glow-cyan), inset 0 0 30px rgba(0, 255, 159, 0.2); }
+    100% { box-shadow: 0 0 20px var(--glow-cyan), inset 0 0 20px rgba(0, 255, 159, 0.1); }
+}
+
+@keyframes text-flicker {
+    0% { text-shadow: 0 0 10px var(--glow-pink), 0 0 20px var(--glow-pink), 0 0 30px var(--glow-pink); }
+    25% { text-shadow: 0 0 8px var(--glow-pink), 0 0 15px var(--glow-pink), 0 0 25px var(--glow-pink); }
+    50% { text-shadow: 0 0 12px var(--glow-pink), 0 0 25px var(--glow-pink), 0 0 35px var(--glow-pink); }
+    75% { text-shadow: 0 0 6px var(--glow-pink), 0 0 12px var(--glow-pink), 0 0 20px var(--glow-pink); }
+    100% { text-shadow: 0 0 10px var(--glow-pink), 0 0 20px var(--glow-pink), 0 0 30px var(--glow-pink); }
+}
+
+@keyframes scanlines {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(100vh); }
+}
+
+/* Scanline overlay effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 2px,
+        var(--scanline) 3px,
+        var(--scanline) 4px
+    );
+    pointer-events: none;
+    z-index: 100;
+    animation: scanlines 10s linear infinite;
+}
+
+/* Bedazzlement effects - no rotation to avoid black edges */
+body::after {
+    content: '';
+    position: fixed;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background:
+        radial-gradient(circle at 30% 30%, var(--glow-cyan) 0%, transparent 70%),
+        radial-gradient(circle at 70% 70%, var(--glow-pink) 0%, transparent 70%),
+        radial-gradient(circle at 50% 20%, rgba(123, 104, 238, 0.3) 0%, transparent 70%),
+        radial-gradient(circle at 20% 80%, var(--glow-cyan) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 2;
+    animation: cosmic-pulse 25s ease-in-out infinite;
+    opacity: 0.25;
+}
+
+@keyframes cosmic-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.25;
+    }
+    33% {
+        transform: scale(1.05);
+        opacity: 0.35;
+    }
+    66% {
+        transform: scale(0.95);
+        opacity: 0.15;
+    }
+}
+
+/* Floating particles */
+.bedazzle-particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 3;
+    box-shadow: 0 0 6px var(--glow-cyan);
+    animation: float-particle 15s linear infinite;
+}
+
+.bedazzle-particle:nth-child(odd) {
+    background: var(--accent-pink);
+    box-shadow: 0 0 6px var(--glow-pink);
+    animation-duration: 12s;
+    animation-delay: -5s;
+}
+
+.bedazzle-particle:nth-child(3n) {
+    background: var(--accent-purple);
+    box-shadow: 0 0 6px rgba(123, 104, 238, 0.8);
+    animation-duration: 18s;
+    animation-delay: -10s;
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Enhanced overlay glow */
+.overlay {
+    animation: glow-pulse 3s infinite ease-in-out, overlay-shimmer 8s infinite linear;
+}
+
+@keyframes overlay-shimmer {
+    0% { border-color: var(--accent-cyan); }
+    33% { border-color: var(--accent-pink); }
+    66% { border-color: var(--accent-purple); }
+    100% { border-color: var(--accent-cyan); }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    .overlay {
+        padding: 20px;
+        max-width: 95vw;
+        max-height: 85vh;
+        border-width: 1px;
+    }
+
+    .overlay h1 {
+        font-size: 2.2em;
+        margin-bottom: 0.2em;
+        letter-spacing: 1px;
+    }
+
+    .overlay h2 {
+        font-size: 1.4em;
+        margin-bottom: 0.4em;
+        letter-spacing: 1px;
+    }
+
+    .overlay p {
+        font-size: 0.95em;
+        line-height: 1.5;
+        margin-bottom: 0.8em;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay {
+        padding: 15px;
+        max-width: 98vw;
+        border-width: 1px;
+    }
+
+    .overlay h1 {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+
+    .overlay h2 {
+        font-size: 1.2em;
+        letter-spacing: 1px;
+    }
+
+    .overlay p {
+        font-size: 0.9em;
+        line-height: 1.4;
+        padding-left: 8px;
+    }
+}
+

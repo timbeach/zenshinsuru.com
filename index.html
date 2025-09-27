@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zenshin Suru</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="aegix-icon-1.png">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    <div class="overlay">
+        <h1>Zenshin Suru</h1>
+        <h2>Always getting better</h2>
+        <p>"Zenshin suru" is a Japanese phrase that translates to "to advance" or "to progress" in English. It's often used in the context of personal development, improvement, or moving forward in some aspect of life or work. The term encapsulates a forward-moving attitude or approach, often associated with continual learning, growth, and adaptation.</p>
+        <br>
+        <p>PS ~ For the keyboard enabled, hold the up arrow to launch the rocket ship. Left, right arrows for turning. Spacebar shoots rainbow stars.</p>
+        <p>Move the mouse over stars to them grow. Click to spawn more stars.</p>
+    </div>
+    <script src="script.js"></script>
+    <script src="oneko-standalone.js"></script>
+
+    <script>
+        // Create floating bedazzle particles
+        function createBedazzleParticles() {
+            for (let i = 0; i < 8; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'bedazzle-particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                document.body.appendChild(particle);
+            }
+        }
+
+        // Removed the flashing title border - it was too much!
+
+        // Initialize bedazzlement
+        document.addEventListener('DOMContentLoaded', () => {
+            createBedazzleParticles();
+        });
+    </script>
+
+</body>
+</html>

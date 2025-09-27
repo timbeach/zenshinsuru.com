@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oneko.js Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .demo-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #ff5252;
+        }
+
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .instruction {
+            font-size: 18px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐱 Oneko.js Demo</h1>
+        <p>A cute pixel cat that follows your mouse cursor!</p>
+
+        <div class="demo-section">
+            <h2>Basic Controls</h2>
+            <button onclick="startCat()">Start Cat</button>
+            <button onclick="stopCat()">Stop Cat</button>
+            <button onclick="resetCat()">Reset Position</button>
+        </div>
+
+        <div class="demo-section">
+            <h2>Speed Controls</h2>
+            <button onclick="setSpeed(0.005)">Slow</button>
+            <button onclick="setSpeed(0.01)">Normal</button>
+            <button onclick="setSpeed(0.02)">Fast</button>
+            <button onclick="setSpeed(0.05)">Turbo</button>
+        </div>
+
+        <div class="demo-section">
+            <h2>Behavior Settings</h2>
+            <button onclick="setIdleTime(1000)">Quick Sleep</button>
+            <button onclick="setIdleTime(5000)">Normal Sleep</button>
+            <button onclick="setIdleTime(10000)">Slow Sleep</button>
+        </div>
+
+        <div class="instruction">
+            <strong>Instructions:</strong><br>
+            • Move your mouse around to see the cat follow<br>
+            • Stop moving for a few seconds to see idle animations<br>
+            • On mobile, touch and drag to move the cat<br>
+            • Try the different speed and behavior settings above
+        </div>
+
+        <div class="demo-section">
+            <h2>Integration Code</h2>
+            <p>To add this to your website, just include:</p>
+            <code>&lt;script src="oneko-standalone.js"&gt;&lt;/script&gt;</code>
+            <br><br>
+            <p>Or with custom options:</p>
+            <code>Oneko.init({ speed: 0.02, idleTimeout: 3000 });</code>
+        </div>
+
+        <div style="height: 200px; margin-top: 50px;">
+            <p style="opacity: 0.7;">Scroll down for more space to play with the cat!</p>
+        </div>
+    </div>
+
+    <!-- Include the oneko script -->
+    <script src="oneko-standalone.js"></script>
+
+    <script>
+        // Prevent auto-initialization so we can control it manually
+        window.ONEKO_AUTO_INIT = false;
+
+        let catActive = false;
+
+        function startCat() {
+            if (!catActive) {
+                Oneko.init();
+                catActive = true;
+                console.log('🐱 Cat started!');
+            }
+        }
+
+        function stopCat() {
+            if (catActive) {
+                Oneko.destroy();
+                catActive = false;
+                console.log('😴 Cat stopped!');
+            }
+        }
+
+        function resetCat() {
+            if (catActive) {
+                stopCat();
+                setTimeout(startCat, 100);
+                console.log('🔄 Cat reset!');
+            }
+        }
+
+        function setSpeed(speed) {
+            if (catActive) {
+                Oneko.configure({ speed: speed });
+                console.log(`⚡ Speed set to: ${speed}`);
+            } else {
+                alert('Start the cat first!');
+            }
+        }
+
+        function setIdleTime(time) {
+            if (catActive) {
+                Oneko.configure({ idleTimeout: time });
+                console.log(`⏰ Idle timeout set to: ${time}ms`);
+            } else {
+                alert('Start the cat first!');
+            }
+        }
+
+        // Start with the cat active by default
+        startCat();
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Alejo!</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(50, 50, 50, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+            width: 90%;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+        .gear {
+            font-size: 1.5em;
+            position: absolute;
+            animation: spinAndFloat 10s linear infinite;
+            opacity: 0.9;
+        }
+        @keyframes spinAndFloat {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-75px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(-150px) rotate(360deg);
+            }
+        }
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50% 50% 50% 50% / 60% 60% 100% 100%;
+            animation: float 10s linear infinite;
+        }
+        .balloon::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -20px;
+            width: 2px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        @keyframes float {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            50% {
+                transform: translateX(20px) translateY(-500px);
+            }
+            100% {
+                transform: translateX(-20px) translateY(-1000px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday, Alejo!</h1>
+        <span class="gear" style="left: 10%; animation-delay: 0s;">⚙️</span>
+        <span class="gear" style="left: 40%; animation-delay: 1s;">⚙️</span>
+        <span class="gear" style="left: 70%; animation-delay: 2s;">⚙️</span>
+        <p>Alejo, wishing you a fantastic birthday! May all your deployments be green, and your builds never fail. Thanks for keeping everything running smoothly — even if it sometimes feels like you're herding cats with Jenkins!</p>
+        <p>Have a great one, and remember: No production pushes today... unless it's cake-related! 🎈🎂</p>
+    </div>
+    <div class="balloon" style="left: 20%; animation-duration: 9s;"></div>
+    <div class="balloon" style="left: 50%; animation-duration: 11s;"></div>
+    <div class="balloon" style="left: 80%; animation-duration: 13s;"></div>
+</body>
+</html>
