@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Abejita | Authentic Mexican Cuisine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-cream: #faf6f1;
+            --color-terracotta: #c2410c;
+            --color-terracotta-dark: #9a3412;
+            --color-gold: #d97706;
+            --color-gold-light: #fbbf24;
+            --color-sage: #365314;
+            --color-sage-light: #4d7c0f;
+            --color-charcoal: #1c1917;
+            --color-warm-gray: #44403c;
+            --color-light-gray: #78716c;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Lato', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-cream);
+            color: var(--color-charcoal);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 0;
+            background: rgba(250, 246, 241, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--color-charcoal);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-tagline {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-terracotta);
+            font-weight: 500;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a {
+            color: var(--color-warm-gray);
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--color-terracotta);
+        }
+
+        .nav-cta {
+            background: var(--color-terracotta);
+            color: white !important;
+            border-radius: 8px;
+            margin-left: 8px;
+        }
+
+        .nav-cta:hover {
+            background: var(--color-terracotta-dark);
+            color: white !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-terracotta) 0%, var(--color-gold) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        /* Decorative pattern overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding: 120px 0 80px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--color-terracotta);
+        }
+
+        .btn-light:hover {
+            background: var(--color-cream);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-terracotta);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: var(--color-charcoal);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--color-light-gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-sage-light) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .about-content h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--color-charcoal);
+        }
+
+        .about-content p {
+            color: var(--color-warm-gray);
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+
+        .signature {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-terracotta);
+            margin-top: 24px;
+            font-style: italic;
+        }
+
+        /* Menu Section */
+        .menu {
+            background: var(--color-cream);
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .menu-tab {
+            padding: 12px 24px;
+            background: white;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-warm-gray);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .menu-tab:hover, .menu-tab.active {
+            background: var(--color-terracotta);
+            color: white;
+            border-color: var(--color-terracotta);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .menu-item h4 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--color-charcoal);
+        }
+
+        .menu-item-price {
+            font-weight: 700;
+            color: var(--color-terracotta);
+            font-size: 1.1rem;
+        }
+
+        .menu-item p {
+            color: var(--color-light-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .menu-item-tags {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .menu-tag {
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            background: var(--color-cream);
+            border-radius: 4px;
+            color: var(--color-sage);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Specials Banner */
+        .specials {
+            background: linear-gradient(135deg, var(--color-charcoal) 0%, #292524 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .specials h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .specials p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .special-items {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .special-item {
+            text-align: center;
+        }
+
+        .special-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .special-item h4 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        .special-item p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        /* Location Section */
+        .location {
+            background: white;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .location-map {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #e7e5e4 0%, #d6d3d1 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .location-info h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: var(--color-charcoal);
+        }
+
+        .info-block {
+            margin-bottom: 24px;
+        }
+
+        .info-block h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-terracotta);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .info-block p {
+            color: var(--color-warm-gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 8px 24px;
+        }
+
+        .hours-grid span:nth-child(odd) {
+            font-weight: 600;
+            color: var(--color-charcoal);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-charcoal);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-column h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            color: var(--color-gold-light);
+        }
+
+        .footer-column a {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            padding: 6px 0;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--color-gold-light);
+            text-decoration: none;
+        }
+
+        .back-to-portfolio {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .back-to-portfolio:hover {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .about-grid,
+            .location-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">&#128029;</div>
+                <div>
+                    <div class="logo-text">La Abejita</div>
+                    <div class="logo-tagline">Authentic Mexican Cuisine</div>
+                </div>
+            </a>
+            <nav>
+                <a href="#about">Our Story</a>
+                <a href="#menu">Menu</a>
+                <a href="#location">Visit Us</a>
+                <a href="#reservations" class="nav-cta">Reservations</a>
+            </nav>
+            <button class="mobile-menu-btn">&#9776;</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-badge">Est. 2019 - Family Owned</div>
+                <h1>Taste the Heart<br>of Mexico</h1>
+                <p>Experience authentic flavors passed down through generations. Every dish tells a story of tradition, love, and the vibrant spirit of Mexican cuisine.</p>
+                <div class="hero-cta">
+                    <a href="#menu" class="btn btn-light">Explore Our Menu</a>
+                    <a href="#reservations" class="btn btn-outline">Make a Reservation</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">&#127798;</div>
+                    <div class="about-content">
+                        <span class="section-label">Our Story</span>
+                        <h3>A Family Tradition Since 2019</h3>
+                        <p>La Abejita, meaning "the little bee" in Spanish, was founded with a simple mission: to bring the authentic flavors of our grandmother's kitchen to our community.</p>
+                        <p>Every recipe has been perfected over generations, using traditional techniques and the freshest ingredients. From our hand-pressed tortillas to our slow-simmered salsas, we pour love into every dish we serve.</p>
+                        <p>Like the hardworking bee that inspired our name, we believe in dedication, community, and creating something sweet for everyone who walks through our doors.</p>
+                        <div class="signature">- The Martinez Family</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu" id="menu">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Our Menu</span>
+                    <h2>Crafted with Love</h2>
+                    <p>Authentic recipes made fresh daily with locally-sourced ingredients</p>
+                </div>
+
+                <div class="menu-categories">
+                    <button class="menu-tab active">Popular</button>
+                    <button class="menu-tab">Tacos</button>
+                    <button class="menu-tab">Entrees</button>
+                    <button class="menu-tab">Drinks</button>
+                    <button class="menu-tab">Desserts</button>
+                </div>
+
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h4>Tacos al Pastor</h4>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Marinated pork, fresh pineapple, cilantro, onion on handmade corn tortillas. Served with salsa verde.</p>
+                        <div class="menu-item-tags">
+                            <span class="menu-tag">Chef's Pick</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h4>Enchiladas Suizas</h4>
+                            <span class="menu-item-price">$18</span>
+                        </div>
+                        <p>Chicken enchiladas topped with creamy tomatillo sauce and melted cheese. Served with rice and beans.</p>
+                        <div class="menu-item-tags">
+                            <span class="menu-tag">Gluten-Free</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h4>Birria Tacos</h4>
+                            <span class="menu-item-price">$16</span>
+                        </div>
+                        <p>Slow-braised beef in rich chile broth, served with consomme for dipping. Three tacos per order.</p>
+                        <div class="menu-item-tags">
+                            <span class="menu-tag">Fan Favorite</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h4>Mole Poblano</h4>
+                            <span class="menu-item-price">$22</span>
+                        </div>
+                        <p>Tender chicken in our signature 28-ingredient mole sauce. A traditional recipe from Puebla.</p>
+                        <div class="menu-item-tags">
+                            <span class="menu-tag">Traditional</span>
+                            <span class="menu-tag">Nut-Free</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h4>Carne Asada</h4>
+                            <span class="menu-item-price">$24</span>
+                        </div>
+                        <p>Grilled marinated skirt steak with grilled onions, peppers, guacamole, and fresh tortillas.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h4>Churros con Chocolate</h4>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Fresh fried churros dusted with cinnamon sugar, served with Mexican chocolate dipping sauce.</p>
+                        <div class="menu-item-tags">
+                            <span class="menu-tag">Vegetarian</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="specials">
+            <div class="container">
+                <h2>Weekly Specials</h2>
+                <p>Join us for these special events and exclusive offers throughout the week</p>
+                <div class="special-items">
+                    <div class="special-item">
+                        <div class="special-icon">&#127860;</div>
+                        <h4>Taco Tuesday</h4>
+                        <p>$2 Street Tacos</p>
+                    </div>
+                    <div class="special-item">
+                        <div class="special-icon">&#127864;</div>
+                        <h4>Margarita Monday</h4>
+                        <p>Half-Price Margaritas</p>
+                    </div>
+                    <div class="special-item">
+                        <div class="special-icon">&#127925;</div>
+                        <h4>Live Music Friday</h4>
+                        <p>Mariachi Band 7-10pm</p>
+                    </div>
+                    <div class="special-item">
+                        <div class="special-icon">&#128106;</div>
+                        <h4>Family Sunday</h4>
+                        <p>Kids Eat Free</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="location" id="location">
+            <div class="container">
+                <div class="location-grid">
+                    <div class="location-map">&#128205;</div>
+                    <div class="location-info">
+                        <span class="section-label">Visit Us</span>
+                        <h3>Come Hungry, Leave Happy</h3>
+
+                        <div class="info-block">
+                            <h4>Address</h4>
+                            <p>1234 Main Street<br>Austin, TX 78701</p>
+                        </div>
+
+                        <div class="info-block">
+                            <h4>Hours</h4>
+                            <div class="hours-grid">
+                                <span>Mon - Thu</span>
+                                <span>11am - 9pm</span>
+                                <span>Fri - Sat</span>
+                                <span>11am - 11pm</span>
+                                <span>Sunday</span>
+                                <span>10am - 8pm</span>
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <h4>Contact</h4>
+                            <p>(512) 555-TACO<br>hola@laabejita.com</p>
+                        </div>
+
+                        <a href="#reservations" class="btn btn-light" style="background: var(--color-terracotta); color: white; margin-top: 16px;">
+                            Reserve a Table
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="reservations">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-text" style="font-family: var(--font-display);">La Abejita</div>
+                    <p>Bringing the authentic flavors of Mexico to Austin since 2019. Every dish made with love, tradition, and the freshest ingredients.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="#about">Our Story</a>
+                    <a href="#menu">Full Menu</a>
+                    <a href="#location">Location</a>
+                    <a href="#">Catering</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Yelp</a>
+                    <a href="#">Google</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Reservations</h4>
+                    <a href="#">Book Online</a>
+                    <a href="#">Private Events</a>
+                    <a href="#">Gift Cards</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 La Abejita. All rights reserved.</p>
+                <p><em>Demo website by <a href="https://zenshinsuru.com">Zenshin Suru</a></em></p>
+                <a href="../../" class="back-to-portfolio">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
