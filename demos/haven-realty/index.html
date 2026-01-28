@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haven Realty | Find Your Perfect Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-navy: #1e3a5f;
+            --color-navy-dark: #152a45;
+            --color-gold: #c9a962;
+            --color-gold-light: #dcc98e;
+            --color-cream: #faf9f7;
+            --color-white: #ffffff;
+            --color-gray-100: #f5f5f4;
+            --color-gray-200: #e7e5e4;
+            --color-gray-400: #a8a29e;
+            --color-gray-600: #57534e;
+            --color-gray-800: #292524;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-xl: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-white);
+            color: var(--color-gray-800);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 0;
+            background: var(--color-white);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--color-navy);
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--color-navy);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            font-size: 1.25rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        nav a {
+            color: var(--color-gray-600);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-navy);
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--color-navy);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-navy-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--color-navy);
+            border: 2px solid var(--color-gray-200);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--color-navy);
+            background: var(--color-cream);
+        }
+
+        .btn-gold {
+            background: var(--color-gold);
+            color: var(--color-navy-dark);
+        }
+
+        .btn-gold:hover {
+            background: var(--color-gold-light);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-white) 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--color-navy);
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--color-gray-600);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .stat h3 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--color-navy);
+        }
+
+        .stat p {
+            font-size: 0.9rem;
+            color: var(--color-gray-400);
+            margin-top: 4px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image-main {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--color-navy) 0%, #2d5a8a 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-image-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--color-white);
+            padding: 20px 24px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .badge-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .badge-text h4 {
+            font-size: 1.25rem;
+            color: var(--color-navy);
+            font-weight: 700;
+        }
+
+        .badge-text p {
+            font-size: 0.85rem;
+            color: var(--color-gray-400);
+        }
+
+        /* Search Bar */
+        .search-section {
+            padding: 0 0 80px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-bar {
+            background: var(--color-white);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            gap: 16px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .search-field {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .search-field label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .search-field input,
+        .search-field select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            color: var(--color-gray-800);
+            background: var(--color-gray-100);
+            transition: all 0.2s ease;
+        }
+
+        .search-field input:focus,
+        .search-field select:focus {
+            outline: none;
+            border-color: var(--color-navy);
+            background: var(--color-white);
+        }
+
+        .search-bar .btn {
+            padding: 14px 32px;
+            height: fit-content;
+        }
+
+        /* Listings Section */
+        .listings {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            color: var(--color-navy);
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: var(--color-gray-400);
+            font-size: 1rem;
+        }
+
+        .section-link {
+            color: var(--color-navy);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.2s ease;
+        }
+
+        .section-link:hover {
+            gap: 12px;
+        }
+
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .listing-card {
+            background: var(--color-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .listing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .listing-image {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .listing-image-bg {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .listing-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--color-navy);
+            color: var(--color-white);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .listing-badge.featured {
+            background: var(--color-gold);
+            color: var(--color-navy-dark);
+        }
+
+        .listing-favorite {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            background: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .listing-favorite:hover {
+            transform: scale(1.1);
+        }
+
+        .listing-content {
+            padding: 24px;
+        }
+
+        .listing-price {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-navy);
+            margin-bottom: 8px;
+        }
+
+        .listing-address {
+            color: var(--color-gray-600);
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .listing-features {
+            display: flex;
+            gap: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .listing-feature {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            color: var(--color-gray-400);
+        }
+
+        .listing-feature span {
+            font-weight: 600;
+            color: var(--color-gray-600);
+        }
+
+        /* Agents Section */
+        .agents {
+            padding: 80px 0;
+            background: var(--color-cream);
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .agent-card {
+            background: var(--color-white);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .agent-photo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--color-navy) 0%, #2d5a8a 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--color-white);
+            font-weight: 600;
+        }
+
+        .agent-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--color-navy);
+            margin-bottom: 4px;
+        }
+
+        .agent-card .role {
+            font-size: 0.9rem;
+            color: var(--color-gold);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .agent-stats {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .agent-stat {
+            text-align: center;
+        }
+
+        .agent-stat strong {
+            display: block;
+            font-size: 1.25rem;
+            color: var(--color-navy);
+        }
+
+        .agent-stat span {
+            font-size: 0.8rem;
+            color: var(--color-gray-400);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--color-navy);
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 1.15rem;
+            opacity: 0.8;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: var(--color-white);
+            color: var(--color-navy);
+        }
+
+        .btn-white:hover {
+            background: var(--color-cream);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: var(--color-white);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--color-white);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            background: var(--color-gray-800);
+            color: var(--color-white);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand p {
+            color: var(--color-gray-400);
+            font-size: 0.9rem;
+            margin-top: 16px;
+            line-height: 1.7;
+        }
+
+        .footer-column h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--color-gray-400);
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--color-white);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            color: var(--color-gray-400);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--color-gold);
+            text-decoration: none;
+        }
+
+        .back-to-portfolio {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-gray-400);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .back-to-portfolio:hover {
+            background: rgba(255,255,255,0.15);
+            color: var(--color-white);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-image {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .listings-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .agents-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .search-bar {
+                flex-direction: column;
+            }
+
+            .search-field {
+                width: 100%;
+            }
+
+            .search-bar .btn {
+                width: 100%;
+            }
+
+            .listings-grid,
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">&#127968;</div>
+                <span class="logo-text">Haven Realty</span>
+            </a>
+            <nav>
+                <a href="#listings">Buy</a>
+                <a href="#">Rent</a>
+                <a href="#">Sell</a>
+                <a href="#agents">Agents</a>
+                <a href="#">About</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="#" class="btn btn-outline">Sign In</a>
+                <a href="#" class="btn btn-primary">List Property</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Find Your Perfect Place to Call Home</h1>
+                        <p>Discover exceptional properties in prime locations. Whether you're buying, selling, or renting, our expert agents are here to guide you every step of the way.</p>
+                        <div class="hero-cta">
+                            <a href="#listings" class="btn btn-primary">Browse Listings</a>
+                            <a href="#" class="btn btn-outline">Schedule Consultation</a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <h3>2,500+</h3>
+                                <p>Properties Listed</p>
+                            </div>
+                            <div class="stat">
+                                <h3>1,200+</h3>
+                                <p>Happy Families</p>
+                            </div>
+                            <div class="stat">
+                                <h3>15+</h3>
+                                <p>Years Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="hero-image-main">&#127969;</div>
+                        <div class="hero-image-badge">
+                            <div class="badge-icon">&#11088;</div>
+                            <div class="badge-text">
+                                <h4>Top Rated</h4>
+                                <p>4.9/5 from 500+ reviews</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="container">
+                <div class="search-bar">
+                    <div class="search-field">
+                        <label>Location</label>
+                        <input type="text" placeholder="City, neighborhood, or ZIP">
+                    </div>
+                    <div class="search-field">
+                        <label>Property Type</label>
+                        <select>
+                            <option>All Types</option>
+                            <option>Single Family</option>
+                            <option>Condo</option>
+                            <option>Townhouse</option>
+                            <option>Multi-Family</option>
+                        </select>
+                    </div>
+                    <div class="search-field">
+                        <label>Price Range</label>
+                        <select>
+                            <option>Any Price</option>
+                            <option>$100k - $300k</option>
+                            <option>$300k - $500k</option>
+                            <option>$500k - $750k</option>
+                            <option>$750k - $1M</option>
+                            <option>$1M+</option>
+                        </select>
+                    </div>
+                    <div class="search-field">
+                        <label>Bedrooms</label>
+                        <select>
+                            <option>Any</option>
+                            <option>1+</option>
+                            <option>2+</option>
+                            <option>3+</option>
+                            <option>4+</option>
+                            <option>5+</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary">
+                        Search
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="listings" id="listings">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>Featured Properties</h2>
+                        <p>Handpicked homes in the most desirable locations</p>
+                    </div>
+                    <a href="#" class="section-link">
+                        View All Listings
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="listings-grid">
+                    <a href="#" class="listing-card">
+                        <div class="listing-image">
+                            <div class="listing-image-bg" style="background: linear-gradient(135deg, #a8d5ba 0%, #4a7c59 100%);">&#127795;</div>
+                            <span class="listing-badge featured">Featured</span>
+                            <span class="listing-favorite">&#9825;</span>
+                        </div>
+                        <div class="listing-content">
+                            <div class="listing-price">$785,000</div>
+                            <div class="listing-address">1234 Oak Valley Drive, Austin, TX</div>
+                            <div class="listing-features">
+                                <div class="listing-feature"><span>4</span> Beds</div>
+                                <div class="listing-feature"><span>3</span> Baths</div>
+                                <div class="listing-feature"><span>2,850</span> sqft</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="listing-card">
+                        <div class="listing-image">
+                            <div class="listing-image-bg" style="background: linear-gradient(135deg, #b8c5d6 0%, #5a7a9a 100%);">&#127961;</div>
+                            <span class="listing-badge">New</span>
+                            <span class="listing-favorite">&#9825;</span>
+                        </div>
+                        <div class="listing-content">
+                            <div class="listing-price">$425,000</div>
+                            <div class="listing-address">567 Downtown Lofts, Unit 12B</div>
+                            <div class="listing-features">
+                                <div class="listing-feature"><span>2</span> Beds</div>
+                                <div class="listing-feature"><span>2</span> Baths</div>
+                                <div class="listing-feature"><span>1,450</span> sqft</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="listing-card">
+                        <div class="listing-image">
+                            <div class="listing-image-bg" style="background: linear-gradient(135deg, #e8d5b7 0%, #b8956c 100%);">&#127958;</div>
+                            <span class="listing-badge">Open House</span>
+                            <span class="listing-favorite">&#9825;</span>
+                        </div>
+                        <div class="listing-content">
+                            <div class="listing-price">$1,250,000</div>
+                            <div class="listing-address">890 Lakefront Estate, Lake Travis</div>
+                            <div class="listing-features">
+                                <div class="listing-feature"><span>5</span> Beds</div>
+                                <div class="listing-feature"><span>4</span> Baths</div>
+                                <div class="listing-feature"><span>4,200</span> sqft</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="listing-card">
+                        <div class="listing-image">
+                            <div class="listing-image-bg" style="background: linear-gradient(135deg, #d4b8c4 0%, #8a5a6a 100%);">&#127963;</div>
+                            <span class="listing-badge featured">Featured</span>
+                            <span class="listing-favorite">&#9825;</span>
+                        </div>
+                        <div class="listing-content">
+                            <div class="listing-price">$550,000</div>
+                            <div class="listing-address">234 Hillside Terrace, Round Rock</div>
+                            <div class="listing-features">
+                                <div class="listing-feature"><span>3</span> Beds</div>
+                                <div class="listing-feature"><span>2.5</span> Baths</div>
+                                <div class="listing-feature"><span>2,100</span> sqft</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="listing-card">
+                        <div class="listing-image">
+                            <div class="listing-image-bg" style="background: linear-gradient(135deg, #b5c9a8 0%, #6a8a5a 100%);">&#127968;</div>
+                            <span class="listing-badge">Price Drop</span>
+                            <span class="listing-favorite">&#9825;</span>
+                        </div>
+                        <div class="listing-content">
+                            <div class="listing-price">$675,000</div>
+                            <div class="listing-address">456 Meadow Lane, Cedar Park</div>
+                            <div class="listing-features">
+                                <div class="listing-feature"><span>4</span> Beds</div>
+                                <div class="listing-feature"><span>3</span> Baths</div>
+                                <div class="listing-feature"><span>2,600</span> sqft</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="listing-card">
+                        <div class="listing-image">
+                            <div class="listing-image-bg" style="background: linear-gradient(135deg, #c9c5b8 0%, #7a7568 100%);">&#127751;</div>
+                            <span class="listing-badge">New</span>
+                            <span class="listing-favorite">&#9825;</span>
+                        </div>
+                        <div class="listing-content">
+                            <div class="listing-price">$925,000</div>
+                            <div class="listing-address">789 Sunset Boulevard, Westlake</div>
+                            <div class="listing-features">
+                                <div class="listing-feature"><span>4</span> Beds</div>
+                                <div class="listing-feature"><span>3.5</span> Baths</div>
+                                <div class="listing-feature"><span>3,400</span> sqft</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="agents" id="agents">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>Meet Our Expert Agents</h2>
+                        <p>Dedicated professionals ready to help you find your dream home</p>
+                    </div>
+                    <a href="#" class="section-link">
+                        View All Agents
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="agents-grid">
+                    <div class="agent-card">
+                        <div class="agent-photo">SM</div>
+                        <h3>Sarah Mitchell</h3>
+                        <p class="role">Senior Agent</p>
+                        <div class="agent-stats">
+                            <div class="agent-stat">
+                                <strong>156</strong>
+                                <span>Sales</span>
+                            </div>
+                            <div class="agent-stat">
+                                <strong>4.9</strong>
+                                <span>Rating</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-photo">JR</div>
+                        <h3>James Rodriguez</h3>
+                        <p class="role">Luxury Specialist</p>
+                        <div class="agent-stats">
+                            <div class="agent-stat">
+                                <strong>98</strong>
+                                <span>Sales</span>
+                            </div>
+                            <div class="agent-stat">
+                                <strong>5.0</strong>
+                                <span>Rating</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-photo">EC</div>
+                        <h3>Emily Chen</h3>
+                        <p class="role">First-Time Buyers</p>
+                        <div class="agent-stats">
+                            <div class="agent-stat">
+                                <strong>203</strong>
+                                <span>Sales</span>
+                            </div>
+                            <div class="agent-stat">
+                                <strong>4.8</strong>
+                                <span>Rating</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-photo">MW</div>
+                        <h3>Michael West</h3>
+                        <p class="role">Investment Properties</p>
+                        <div class="agent-stats">
+                            <div class="agent-stat">
+                                <strong>127</strong>
+                                <span>Sales</span>
+                            </div>
+                            <div class="agent-stat">
+                                <strong>4.9</strong>
+                                <span>Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Find Your Dream Home?</h2>
+                <p>Connect with our team today and let us help you navigate the real estate market with confidence.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-white">Schedule a Consultation</a>
+                    <a href="#" class="btn btn-outline-white">Call (512) 555-HOME</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">&#127968;</div>
+                        <span class="logo-text" style="color: white;">Haven Realty</span>
+                    </a>
+                    <p>Your trusted partner in finding the perfect home. Serving the Austin metro area with integrity and expertise since 2009.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="#">Buy a Home</a>
+                    <a href="#">Sell Your Home</a>
+                    <a href="#">Rentals</a>
+                    <a href="#">Home Values</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Our Agents</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="#">Blog</a>
+                    <a href="#">Market Reports</a>
+                    <a href="#">Mortgage Calculator</a>
+                    <a href="#">Buying Guide</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Haven Realty. All rights reserved.</p>
+                <p><em>Demo website by <a href="https://zenshinsuru.com">Zenshin Suru</a></em></p>
+                <a href="../../" class="back-to-portfolio">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
