@@ -374,6 +374,154 @@
             text-decoration: underline;
         }
 
+        /* Contact Section */
+        .contact {
+            padding: 80px 0 100px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .contact-info h2 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+
+        .contact-details li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-details .icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -399,6 +547,19 @@
 
             .card-preview {
                 height: 200px;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 28px;
             }
         }
     </style>
@@ -499,13 +660,75 @@
                 </div>
             </div>
         </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Let's Build Something <span>Great</span></h2>
+                        <p>Have a project in mind? Whether you need a new website, a redesign, or just want to chat about your ideas, we'd love to hear from you.</p>
+                        <ul class="contact-details">
+                            <li>
+                                <span class="icon">&#128231;</span>
+                                <span>hello@zenshinsuru.com</span>
+                            </li>
+                            <li>
+                                <span class="icon">&#127759;</span>
+                                <span>Based in Tennessee, serving clients worldwide</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-form">
+                        <div class="success-message" id="successMessage">
+                            <h4>Message Sent!</h4>
+                            <p>Thanks for reaching out. We'll get back to you soon.</p>
+                        </div>
+                        <form action="contact.php" method="POST">
+                            <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
+                            <div class="form-group">
+                                <label for="name">Your Name *</label>
+                                <input type="text" id="name" name="name" placeholder="John Smith" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="john@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                                </div>
+                            </div>
+                            <p class="form-note">* Please provide either email or phone</p>
+                            <div class="form-group">
+                                <label for="message">Tell us about your project *</label>
+                                <textarea id="message" name="message" placeholder="What kind of website do you need? What's your timeline?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                Send Message
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer id="contact">
+    <footer>
         <div class="container">
-            <p>Designed with care by <a href="https://timbeach.com" target="_blank">Timothy D Beach</a></p>
-            <p style="margin-top: 8px; font-size: 0.85rem;">Want a website like these? <a href="mailto:hello@zenshinsuru.com">Let's talk</a></p>
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Zenshin Suru. Designed by <a href="https://timbeach.com" target="_blank">Timothy D Beach</a></p>
         </div>
     </footer>
+
+    <script>
+        if (new URLSearchParams(window.location.search).get('sent') === '1') {
+            document.getElementById('successMessage').classList.add('show');
+        }
+    </script>
 </body>
 </html>

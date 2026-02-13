@@ -1,0 +1,59 @@
+Colony Investments LLC – Website Content Template
+1. Header / Top Section
+Logo: (Use existing Colony Investments LLC logo – gold & black)
+Navigation Menu:
+Home
+About Us
+What We Do
+Properties
+Contact Us
+2. Home Page
+Hero Section (Main Banner)
+Headline:
+Real Estate Investing with Vision and Purpose
+Subheadline:
+Buying, renovating, selling, and renting properties with integrity and long-term value in mind.
+Call to Action Buttons:
+View Our Properties
+Contact Us
+3. What We Do (Services Section)
+Title:
+What We Do
+Content:
+Colony Investments LLC specializes in acquiring distressed properties, transforming them through strategic renovations, and creating value through fix-and-flip projects and rental properties.
+We focus on identifying opportunities where others see challenges, improving homes, and contributing positively to the communities we serve.
+Bullet Points (optional):
+Buying distressed properties
+Fix-and-flip residential homes
+Selling renovated properties
+Holding properties for rental income
+4. About Us (Who We Are)
+Title:
+About Us
+Content:
+Colony Investments LLC is a family-owned real estate investment company led by Daniela Hernández, an intelligent and highly motivated entrepreneur.
+With a strong desire for personal and professional growth, Daniela brings passion, discipline, and a forward-thinking mindset to every project. Her entrepreneurial spirit and commitment to excellence drive the company’s mission to build long-term value through real estate.
+5. Properties Page
+Title:
+Our Properties
+Content (intro text):
+Explore our available properties for sale and rent. Each property reflects our commitment to quality, functionality, and smart investment.
+Property Cards Should Include:
+Property photos
+Short description
+Status (For Sale / For Rent / Sold)
+Location
+Contact button
+6. Contact Page
+Title:
+Contact Us
+Content:
+Interested in working with us or learning more about our properties? Get in touch with Colony Investments LLC.
+Contact Form Fields:
+Name
+Email
+Phone
+Message
+Optional Info:
+Business Name: Colony Investments LLC
+Service Area: (optional – can be added later)
