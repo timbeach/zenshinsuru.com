@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <p>Redirecting to listing...</p>
+    <script>
+        var url = new URLSearchParams(window.location.search).get('url');
+        if (url && url.match(/^https:\/\/(www\.)?zillow\.com\//)) {
+            window.location.replace(url);
+        }
+    </script>
+</body>
+</html>
