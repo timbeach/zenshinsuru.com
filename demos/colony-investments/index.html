@@ -539,6 +539,26 @@
             color: var(--color-gold);
         }
 
+        .property-cta.zillow-link {
+            color: var(--color-white);
+            background: #006aff;
+            padding: 10px 18px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .property-cta.zillow-link:hover {
+            background: #0054cc;
+            gap: 8px;
+            color: var(--color-white);
+        }
+
+        .property-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
         /* Contact */
         .contact {
             padding: 100px 0;
@@ -1042,33 +1062,41 @@
 
                     <div class="property-card">
                         <div class="property-image">
-                            <div class="property-image-bg" style="background: linear-gradient(135deg, #b8c9c5 0%, #6a8a82 100%);">&#127960;</div>
+                            <img src="../../colony-investments-assets/listing-images/colony_rental_0.png" alt="104 Marion Ave, Bristol, TN" style="width:100%;height:100%;object-fit:cover;">
                             <span class="property-status for-rent">For Rent</span>
                         </div>
                         <div class="property-content">
                             <div class="property-location">Bristol, TN</div>
-                            <div class="property-title">Modern Duplex Unit</div>
-                            <p class="property-desc">Newly renovated 2-bed unit with updated kitchen, new appliances, and private entrance.</p>
-                            <a href="#contact" class="property-cta">
-                                Inquire Now
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </a>
+                            <div class="property-title">104 Marion Ave</div>
+                            <p class="property-desc">$1,300/mo · 2 Bed · 1 Bath · 776 sqft — Charming home with front porch, available for rent.</p>
+                            <div class="property-actions">
+                                <a href="https://www.zillow.com/homedetails/104-Marion-Ave-Bristol-TN-37620/42428642_zpid/" target="_blank" rel="noopener" class="property-cta zillow-link">
+                                    View on Zillow
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                                    </svg>
+                                </a>
+                                <a href="#contact" class="property-cta">
+                                    Inquire
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="property-card">
                         <div class="property-image">
-                            <div class="property-image-bg" style="background: linear-gradient(135deg, #c5b8a8 0%, #8a7a68 100%);">&#127968;</div>
-                            <span class="property-status sold">Sold</span>
+                            <div class="property-image-bg" style="background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);">&#128270;</div>
+                            <span class="property-status for-sale">Browse All</span>
                         </div>
                         <div class="property-content">
-                            <div class="property-location">Johnson City, TN</div>
-                            <div class="property-title">Complete Renovation</div>
-                            <p class="property-desc">Full gut renovation transforming a distressed property into a turnkey family home.</p>
-                            <a href="#contact" class="property-cta">
-                                View Case Study
+                            <div class="property-location">East Tennessee</div>
+                            <div class="property-title">See All Listings</div>
+                            <p class="property-desc">View all available rental and sale properties across the Tri-Cities area.</p>
+                            <a href="listings.html" class="property-cta">
+                                View All
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>
                                 </svg>
