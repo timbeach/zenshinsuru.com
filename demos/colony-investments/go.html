@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="referrer" content="no-referrer">
-    <title>Redirecting...</title>
+    <title>Redirecting to listing...</title>
 </head>
 <body>
-    <p>Redirecting to listing...</p>
+    <p>Redirecting to listing on Zillow...</p>
     <script>
-        var url = new URLSearchParams(window.location.search).get('url');
-        if (url && url.match(/^https:\/\/(www\.)?zillow\.com\//)) {
-            window.location.replace(url);
+        var q = new URLSearchParams(window.location.search).get('q');
+        if (q) {
+            window.location.replace('https://www.google.com/search?q=' + encodeURIComponent(q + ' zillow'));
         }
     </script>
 </body>
