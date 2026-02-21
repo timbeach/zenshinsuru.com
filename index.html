@@ -1,511 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenshin Suru | Web Design Portfolio</title>
+    <title>Zenshin Suru | Web Design Studio</title>
+    <meta name="description" content="We design and build beautiful, high-performance websites that help businesses grow.">
+    <link rel="icon" type="image/png" href="pix/aegix-icon-1.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="aegix-icon-1.png">
-    <style>
-        :root {
-            --bg-dark: #0a0a0b;
-            --bg-card: #141417;
-            --bg-card-hover: #1a1a1f;
-            --accent-primary: #6366f1;
-            --accent-secondary: #8b5cf6;
-            --accent-glow: rgba(99, 102, 241, 0.4);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --border-subtle: rgba(255, 255, 255, 0.08);
-            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Subtle grid background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Gradient orbs */
-        .gradient-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.5;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .orb-1 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
-            top: -200px;
-            right: -100px;
-        }
-
-        .orb-2 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
-            bottom: -150px;
-            left: -100px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Header */
-        header {
-            padding: 24px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: rgba(10, 10, 11, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-        }
-
-        .logo-subtitle {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-weight: 400;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-top: 2px;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            margin-left: 32px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--text-primary);
-        }
-
-        /* Hero */
-        .hero {
-            padding: 180px 0 120px;
-            text-align: center;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            color: var(--accent-primary);
-            margin-bottom: 24px;
-            font-weight: 500;
-        }
-
-        .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -2px;
-        }
-
-        .hero h1 span {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-        }
-
-        .cta-group {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            box-shadow: 0 4px 20px var(--accent-glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px var(--accent-glow);
-        }
-
-        .btn-secondary {
-            background: var(--bg-card);
-            color: var(--text-primary);
-            border: 1px solid var(--border-subtle);
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-card-hover);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            padding: 80px 0 120px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -1px;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-        }
-
-        .portfolio-card {
-            background: var(--bg-card);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border-subtle);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(99, 102, 241, 0.4);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px var(--accent-glow);
-        }
-
-        .card-preview {
-            height: 240px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .card-preview-placeholder {
-            font-size: 4rem;
-        }
-
-        .card-content {
-            padding: 28px;
-        }
-
-        .card-tag {
-            display: inline-block;
-            padding: 6px 12px;
-            background: rgba(99, 102, 241, 0.1);
-            border-radius: 6px;
-            font-size: 0.8rem;
-            color: var(--accent-primary);
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-
-        .card-content h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        .card-content p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .card-arrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 16px;
-            color: var(--accent-primary);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .card-arrow svg {
-            transition: transform 0.2s ease;
-        }
-
-        .portfolio-card:hover .card-arrow svg {
-            transform: translateX(4px);
-        }
-
-        /* Coming Soon Card */
-        .portfolio-card.coming-soon {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        .portfolio-card.coming-soon .card-preview {
-            background: linear-gradient(135deg, #1f1f23 0%, #18181b 100%);
-        }
-
-        /* Footer */
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid var(--border-subtle);
-            text-align: center;
-        }
-
-        footer p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--accent-primary);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            nav a {
-                margin: 0 16px;
-            }
-
-            .hero {
-                padding: 140px 0 80px;
-            }
-
-            .hero h1 {
-                letter-spacing: -1px;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .card-preview {
-                height: 200px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+    // Apply saved theme before paint to prevent flash
+    (function() {
+        var saved = localStorage.getItem('theme');
+        if (saved) document.documentElement.setAttribute('data-theme', saved);
+    })();
+    </script>
 </head>
 <body>
-    <div class="gradient-orb orb-1"></div>
-    <div class="gradient-orb orb-2"></div>
 
-    <header>
-        <div class="container header-content">
-            <div>
-                <div class="logo">Zenshin Suru</div>
-                <div class="logo-subtitle">Always Getting Better</div>
-            </div>
-            <nav>
-                <a href="#portfolio">Portfolio</a>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo-link">
+                <img src="zenshinsuru_logo_1.png" alt="Zenshin Suru" class="logo-mark">
+            </a>
+            <nav class="site-nav">
+                <a href="#work">Work</a>
                 <a href="#contact">Contact</a>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
 
     <main>
+        <!-- Hero -->
         <section class="hero">
             <div class="container">
-                <div class="hero-badge">Web Design Studio</div>
-                <h1>Crafting Digital<br>Experiences That <span>Convert</span></h1>
-                <p>We design and build beautiful, high-performance websites that help businesses grow. From restaurants to tech startups, we bring your vision to life.</p>
-                <div class="cta-group">
-                    <a href="#portfolio" class="btn btn-primary">
-                        View Our Work
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                <hr class="hero-rule fade-up">
+                <p class="hero-tagline fade-up delay-1">Always Getting Better</p>
+                <h1 class="hero-heading fade-up delay-2">
+                    Crafting digital<br>experiences that <em>convert</em>
+                </h1>
+                <p class="hero-description fade-up delay-3">
+                    We design and build beautiful, high-performance websites
+                    that help businesses grow. From restaurants to real estate companies,
+                    we bring your vision to life.
+                </p>
+                <div class="hero-actions fade-up delay-4">
+                    <a href="#work" class="btn btn-primary">View our work</a>
+                    <a href="#contact" class="btn btn-ghost">Get in touch</a>
                 </div>
             </div>
         </section>
 
-        <section class="portfolio" id="portfolio">
+        <!-- Work -->
+        <section class="work" id="work">
             <div class="container">
-                <div class="section-header">
-                    <h2>Featured Projects</h2>
-                    <p>Real-world examples of websites we've designed and developed for our clients.</p>
+                <div class="section-label">
+                    <span class="label-line"></span>
+                    <span class="label-text">Selected Work</span>
                 </div>
 
-                <div class="portfolio-grid">
-                    <a href="demos/la-abejita/" class="portfolio-card">
-                        <div class="card-preview" style="background: linear-gradient(135deg, #c2410c 0%, #ea580c 50%, #f59e0b 100%);">
-                            <span class="card-preview-placeholder">&#127839;</span>
+                <div class="project-grid">
+
+                    <a href="demos/la-abejita/" class="project-card">
+                        <div class="card-preview">
+                            <div class="card-preview-bg" style="background: linear-gradient(135deg, #b8522e 0%, #d4885a 60%, #e8b87a 100%);">
+                                <span class="card-emoji">&#x1F41D;</span>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <span class="card-tag">Restaurant</span>
-                            <h3>La Abejita</h3>
-                            <p>A warm, inviting website for an authentic Mexican restaurant featuring online menus and reservation capabilities.</p>
-                            <span class="card-arrow">
-                                View Project
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </span>
+                        <div class="card-body">
+                            <p class="card-category">Restaurant</p>
+                            <h3 class="card-title">La Abejita</h3>
+                            <p class="card-desc">A warm, inviting website for an authentic Mexican restaurant with online menus and reservations.</p>
+                            <span class="card-link">View project <span class="arrow">&rarr;</span></span>
                         </div>
                     </a>
 
-                    <a href="demos/techflow/" class="portfolio-card">
-                        <div class="card-preview" style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);">
-                            <span class="card-preview-placeholder">&#9889;</span>
+                    <a href="demos/techflow/" class="project-card">
+                        <div class="card-preview">
+                            <div class="card-preview-bg" style="background: linear-gradient(135deg, #5c2d82 0%, #7b4fa0 50%, #9a72be 100%);">
+                                <span class="card-emoji">&#x26A1;</span>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <span class="card-tag">SaaS</span>
-                            <h3>TechFlow</h3>
-                            <p>A sleek workflow automation platform with modern design, pricing tiers, and conversion-focused landing page.</p>
-                            <span class="card-arrow">
-                                View Project
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </span>
+                        <div class="card-body">
+                            <p class="card-category">SaaS</p>
+                            <h3 class="card-title">TechFlow</h3>
+                            <p class="card-desc">A sleek workflow automation platform with modern design, pricing tiers, and conversion-focused landing.</p>
+                            <span class="card-link">View project <span class="arrow">&rarr;</span></span>
                         </div>
                     </a>
 
-                    <a href="demos/haven-realty/" class="portfolio-card">
-                        <div class="card-preview" style="background: linear-gradient(135deg, #1e3a5f 0%, #c9a962 100%);">
-                            <span class="card-preview-placeholder">&#127968;</span>
+                    <a href="demos/haven-realty/" class="project-card">
+                        <div class="card-preview">
+                            <div class="card-preview-bg" style="background: linear-gradient(135deg, #2d3a4a 0%, #4a5568 50%, #8b7355 100%);">
+                                <span class="card-emoji">&#x1F3E1;</span>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <span class="card-tag">Real Estate</span>
-                            <h3>Haven Realty</h3>
-                            <p>Property listings with advanced search, featured homes, and agent profiles for a premium real estate agency.</p>
-                            <span class="card-arrow">
-                                View Project
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </span>
+                        <div class="card-body">
+                            <p class="card-category">Real Estate</p>
+                            <h3 class="card-title">Haven Realty</h3>
+                            <p class="card-desc">Property listings with advanced search, featured homes, and agent profiles for a premium agency.</p>
+                            <span class="card-link">View project <span class="arrow">&rarr;</span></span>
                         </div>
                     </a>
+
+                    <a href="demos/colony-investments/" class="project-card">
+                        <div class="card-preview">
+                            <div class="card-preview-bg" style="background: linear-gradient(135deg, #1a4a3a 0%, #2d6b54 50%, #4a8c72 100%);">
+                                <span class="card-emoji">&#x1F4C8;</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-category">Finance</p>
+                            <h3 class="card-title">Colony Investments</h3>
+                            <p class="card-desc">Professional investment platform with portfolio management, market data, and client dashboards.</p>
+                            <span class="card-link">View project <span class="arrow">&rarr;</span></span>
+                        </div>
+                    </a>
+
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="contact">
+    <!-- Footer -->
+    <footer class="site-footer" id="contact">
         <div class="container">
-            <p>Designed with care by <a href="https://timbeach.com" target="_blank">Timothy D Beach</a></p>
-            <p style="margin-top: 8px; font-size: 0.85rem;">Want a website like these? <a href="mailto:hello@zenshinsuru.com">Let's talk</a></p>
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <p>Always getting better.</p>
+                </div>
+                <div class="footer-contact">
+                    <p>Ready to start a project?</p>
+                    <a href="mailto:beachtimothyd@gmail.com">beachtimothyd@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-credits">
+                <p>Designed with care by <a href="https://timbeach.com" target="_blank" rel="noopener">Timothy D Beach</a></p>
+            </div>
         </div>
     </footer>
+
+    <script>
+    // Header scroll state
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // Scroll-triggered card entrances
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
+
+    // Theme toggle
+    const toggle = document.querySelector('.theme-toggle');
+    toggle.addEventListener('click', () => {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+    });
+    </script>
 </body>
 </html>
